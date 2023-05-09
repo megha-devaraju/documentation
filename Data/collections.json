@@ -338,32 +338,6 @@
                     "type": "text/html"
                 }
             ],
-            "providers": [
-                {
-                    "name": "VITO, on behalf of the Belgian Science Policy Office (BELSPO).",
-                    "roles": [
-                        "producer",
-                        "licensor"
-                    ],
-                    "url": "https://terrascope.be"
-                },
-                {
-                    "description": "Europe since November 2016, Global since January 2017",
-                    "name": "Sentinel Hub",
-                    "roles": [
-                        "processor"
-                    ],
-                    "url": "https://services.sentinel-hub.com"
-                },
-                {
-                    "description": "Europe since July 2016",
-                    "name": "Sentinel Hub",
-                    "roles": [
-                        "processor"
-                    ],
-                    "url": "https://shservices.mundiwebservices.com"
-                }
-            ],
             "stac_extensions": [
                 "datacube",
                 "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
@@ -1125,256 +1099,1795 @@
             }
         },
         {
-            "id": "SENTINEL2__L0",
-            "title": "Sentinel-2 Level0",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL2__L1B",
-            "title": "Sentinel-2 Level1B",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
             "id": "SENTINEL1_GRD",
             "title": "Sentinel-1 Ground Range Detected",
-            "description": "",
+            "description": "The [Sentinel-1 radar imaging mission](https://sentinel.esa.int/web/sentinel/missions/sentinel-1) is composed of a constellation of two polar-orbiting satellites providing continous all-weather, day and night imagery for Land and Maritime Monitoring. C-band synthentic aperture radar imaging has the advantage of operating at wavelenghts that are not obstructed by clouds or lack of illumination and therefore can acquire data during day or night under all weather conditions. With 6 days repeat cycle on the entire world and daily acquistions of sea ice zones and Europe's major shipping routes, Sentinel-1 ensures reliable data availability to support emergency services and applications requiring time series observations. Sentinel-1 continues the retired ERS and ENVISAT missions. Level 1 GRD products are available since October 2014.",
             "mission": "Sentinel-1",
-            "gsd": 10
+            "gsd": "",
+            "type":"Collection",
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -90,
+                            180,
+                            90
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2014-10-03T04:14:15Z",
+                            null
+                        ]
+                    ]
+                }
+            },
+            "cube:dimensions": {
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "VV",
+                        "VH",
+                        "HH",
+                        "HV",
+                        "dataMask"
+                    ]
+                },
+                "t": {
+                    "extent": [
+                        "2014-10-03T04:14:15Z",
+                        null
+                    ],
+                    "step": null,
+                    "type": "temporal"
+                },
+                "x": {
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ],
+                    "reference_system": 4326,
+                    "type": "spatial"
+                },
+                "y": {
+                    "axis": "y",
+                    "extent": [
+                        -90,
+                        90
+                    ],
+                    "reference_system": 4326,
+                    "type": "spatial"
+                }
+            },
+            "license": "proprietary",
+            "keywords": [
+                "sentinel hub",
+                "xcube",
+                "raster",
+                "systematic",
+                "satellite imagery",
+                "SAR",
+                "radar",
+                "backscattering",
+                "polarization",
+                "Copernicus",
+                "maritime monitoring",
+                "land monitoring",
+                "disaster response",
+                "open data",
+                "race challenges",
+                "sentinel"
+            ],
+            "links": [
+                {
+                    "href": "https://dataspace.copernicus.eu/browser/?zoom=3&lat=26&lng=0&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F28b654e7-8912-4e59-9e58-85b58d768b3a&datasetId=S2_L2A_CDAS&demSource3D=%22MAPZEN%22&cloudCoverage=30",
+                    "title": "CDSE Data-Browser",
+                    "rel": "browser"
+                },
+                {
+                    "href": "https://sentinel.esa.int/web/sentinel/technical-guides/sentinel-1-sar/products-algorithms/level-1-algorithms/ground-range-detected",
+                    "title": "User guide",
+                    "rel": "about"
+                },
+                {
+                    "href": "https://catalogue.dataspace.copernicus.eu/resto/api/collections/Sentinel1/search.json",
+                    "rel": "opensearch"
+                },
+                {
+                    "href": "https://collections.eurodatacube.com/stac/sentinel-1-grd.json",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://services.sentinel-hub.com/ogc/wmts/113184fa-263a-4bd8-a2d3-0c00fbcef8b5",
+                    "rel": "wmts",
+                    "wmts:dimensions": {
+                        "warnings": true
+                    },
+                    "wmts:layer": "SAR-URBAN"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/sentinel-1/urban_areas/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:acquisition_mode": "IW",
+                    "sentinelhub:layer_name": "SAR urban",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:polarization": "DV",
+                    "sentinelhub:resolution": "HIGH",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate SAR urban imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/sentinel-1/sar_false_color_visualization-2/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:acquisition_mode": "IW",
+                    "sentinelhub:layer_name": "Enhanced visualization",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:polarization": "DV",
+                    "sentinelhub:resolution": "HIGH",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate Enhanced visualization imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://docs.sentinel-hub.com/api/latest/data/sentinel-1-grd/#attribution-and-use",
+                    "rel": "license",
+                    "title": "License",
+                    "type": "text/html"
+                }
+            ],
+            "stac_extensions": [
+                "https://stac-extensions.github.io/datacube/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/raster/v1.0.0/schema.json"
+            ],
+            "stac_version": "1.0.0",
+            "summaries": {
+                "constellation": [
+                    "sentinel-1"
+                ],
+                "instruments": [
+                    "c-sar"
+                ],
+                "platform": [
+                    "sentinel-1a",
+                    "sentinel-1b"
+                ],
+                "raster:bands": [
+                    {
+                        "data_type": "float32",
+                        "description": "Single co-polarization, vertical transmit/vertical receive",
+                        "name": "VV",
+                        "openeo:gsd": {
+                            "unit": "\u00b0",
+                            "value": [
+                                [
+                                    9.259259e-05,
+                                    9.259259e-05
+                                ],
+                                [
+                                    0.00023148147,
+                                    0.00023148147
+                                ],
+                                [
+                                    0.00037037037,
+                                    0.00037037037
+                                ]
+                            ]
+                        },
+                        "statistics": {
+                            "maximum": [
+                                0.5
+                            ],
+                            "minimum": [
+                                0
+                            ]
+                        }
+                    },
+                    {
+                        "data_type": "float32",
+                        "description": "Dual-band cross-polarization, vertical transmit/horizontal receive",
+                        "name": "VH",
+                        "openeo:gsd": {
+                            "unit": "\u00b0",
+                            "value": [
+                                [
+                                    9.259259e-05,
+                                    9.259259e-05
+                                ],
+                                [
+                                    0.00023148147,
+                                    0.00023148147
+                                ],
+                                [
+                                    0.00037037037,
+                                    0.00037037037
+                                ]
+                            ]
+                        },
+                        "statistics": {
+                            "maximum": [
+                                0.5
+                            ],
+                            "minimum": [
+                                0
+                            ]
+                        }
+                    },
+                    {
+                        "data_type": "float32",
+                        "description": "Dual-band cross-polarization, horizontal transmit/vertical receive",
+                        "name": "HV",
+                        "openeo:gsd": {
+                            "unit": "\u00b0",
+                            "value": [
+                                [
+                                    9.259259e-05,
+                                    9.259259e-05
+                                ],
+                                [
+                                    0.00023148147,
+                                    0.00023148147
+                                ],
+                                [
+                                    0.00037037037,
+                                    0.00037037037
+                                ]
+                            ]
+                        },
+                        "statistics": {
+                            "maximum": [
+                                0.5
+                            ],
+                            "minimum": [
+                                0
+                            ]
+                        }
+                    },
+                    {
+                        "data_type": "float32",
+                        "description": "Single co-polarization, horizontal transmit/horizontal receive",
+                        "name": "HH",
+                        "openeo:gsd": {
+                            "unit": "\u00b0",
+                            "value": [
+                                [
+                                    9.259259e-05,
+                                    9.259259e-05
+                                ],
+                                [
+                                    0.00023148147,
+                                    0.00023148147
+                                ],
+                                [
+                                    0.00037037037,
+                                    0.00037037037
+                                ]
+                            ]
+                        },
+                        "statistics": {
+                            "maximum": [
+                                0.5
+                            ],
+                            "minimum": [
+                                0
+                            ]
+                        }
+                    },
+                    {
+                        "description": "The mask of data/no data pixels",
+                        "name": "dataMask"
+                    }
+                ],
+                "sar:center_frequency": [
+                    5.405
+                ],
+                "sar:frequency_band": [
+                    "C"
+                ],
+                "sar:instrument_mode": [
+                    "SM",
+                    "IW",
+                    "EW",
+                    "WV"
+                ],
+                "sar:polarizations": [
+                    "SH",
+                    "SV",
+                    "DH",
+                    "DV",
+                    "HH",
+                    "HV",
+                    "VV",
+                    "VH",
+                    "dataMask"
+                ],
+                "sar:product_type": [
+                    "GRD"
+                ],
+                "sar:resolution": [
+                    10,
+                    25,
+                    40
+                ],
+                "sat:orbit_state": [
+                    "ascending",
+                    "descending"
+                ]
+            }
         },
         {
-            "id": "SENTINEL1_GRD_IW",
-            "title": "Sentinel-1 ground range detected IW",
-            "description": "",
-            "mission": "",
-            "gsd": 10
+            "id": "SENTINEL3_OLCI_L1B",
+            "title": "Sentinel-3 OLCI L1B",
+            "type": "Collection",
+            "description": "The [Sentinel -3](https://sentinel.esa.int/web/sentinel/missions/sentinel-3) is composed of three versatile satellites designed \nto provide data continuity for the ERS, ENVISAT and SPOT satellites and to support operational land and ocean observataion services.\nSentinel -3 satellites make use of four main instruments on board; OLCI, SLSTR, SRAL and MWR, to measure sea surface topography, \nsea and land surface temperature and ocean and land surface color.\nThe medium resolution OLCI(Ocean and Land Colour Instrument) is the successor to ENVISAT's MERIS instrument. \nSince its launch in 2016, OLCI acquires data of the entire globe atleast every 2 days, in 21 bands, from which information on marine and terrestrial biomass can be derived. \nOLCI also provides reliable information on the atmosphere, especially on the aerosols characterisation.\nLevel 1B data provides calibrated, ortho-geolocated and spatially re-sampled Top Of Atmosphere (TOA) radiances for the 21 OLCI spectral bands.\n",
+            "mission":"Sentinel-3",
+            "assets": {
+                "thumbnail": {
+                    "href": "https://collections.eurodatacube.com/sentinel-3-l1b-olci/sentinel-3-l1b-olci.png",
+                    "roles": [
+                        "thumbnail"
+                    ],
+                    "title": "Thumbnail",
+                    "type": "image/png"
+                }
+            },
+            "crs": [
+                "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                "http://www.opengis.net/def/crs/EPSG/0/2154",
+                "http://www.opengis.net/def/crs/EPSG/0/2180",
+                "http://www.opengis.net/def/crs/EPSG/0/2193",
+                "http://www.opengis.net/def/crs/EPSG/0/3003",
+                "http://www.opengis.net/def/crs/EPSG/0/3004",
+                "http://www.opengis.net/def/crs/EPSG/0/3031",
+                "http://www.opengis.net/def/crs/EPSG/0/3035",
+                "http://www.opengis.net/def/crs/EPSG/0/4326",
+                "http://www.opengis.net/def/crs/EPSG/0/4346",
+                "http://www.opengis.net/def/crs/EPSG/0/4416",
+                "http://www.opengis.net/def/crs/EPSG/0/4765",
+                "http://www.opengis.net/def/crs/EPSG/0/4794",
+                "http://www.opengis.net/def/crs/EPSG/0/4844",
+                "http://www.opengis.net/def/crs/EPSG/0/4857",
+                "http://www.opengis.net/def/crs/EPSG/0/3912",
+                "http://www.opengis.net/def/crs/EPSG/0/3995",
+                "http://www.opengis.net/def/crs/EPSG/0/4026",
+                "http://www.opengis.net/def/crs/EPSG/0/5514",
+                "http://www.opengis.net/def/crs/EPSG/0/28992",
+                "http://www.opengis.net/def/crs/EPSG/0/32601",
+                "http://www.opengis.net/def/crs/EPSG/0/32602",
+                "http://www.opengis.net/def/crs/EPSG/0/32603",
+                "http://www.opengis.net/def/crs/EPSG/0/32604",
+                "http://www.opengis.net/def/crs/EPSG/0/32605",
+                "http://www.opengis.net/def/crs/EPSG/0/32606",
+                "http://www.opengis.net/def/crs/EPSG/0/32607",
+                "http://www.opengis.net/def/crs/EPSG/0/32608",
+                "http://www.opengis.net/def/crs/EPSG/0/32609",
+                "http://www.opengis.net/def/crs/EPSG/0/32610",
+                "http://www.opengis.net/def/crs/EPSG/0/32611",
+                "http://www.opengis.net/def/crs/EPSG/0/32612",
+                "http://www.opengis.net/def/crs/EPSG/0/32613",
+                "http://www.opengis.net/def/crs/EPSG/0/32614",
+                "http://www.opengis.net/def/crs/EPSG/0/32615",
+                "http://www.opengis.net/def/crs/EPSG/0/32616",
+                "http://www.opengis.net/def/crs/EPSG/0/32617",
+                "http://www.opengis.net/def/crs/EPSG/0/32618",
+                "http://www.opengis.net/def/crs/EPSG/0/32619",
+                "http://www.opengis.net/def/crs/EPSG/0/32620",
+                "http://www.opengis.net/def/crs/EPSG/0/32621",
+                "http://www.opengis.net/def/crs/EPSG/0/32622",
+                "http://www.opengis.net/def/crs/EPSG/0/32623",
+                "http://www.opengis.net/def/crs/EPSG/0/32624",
+                "http://www.opengis.net/def/crs/EPSG/0/32625",
+                "http://www.opengis.net/def/crs/EPSG/0/32626",
+                "http://www.opengis.net/def/crs/EPSG/0/32627",
+                "http://www.opengis.net/def/crs/EPSG/0/32628",
+                "http://www.opengis.net/def/crs/EPSG/0/32629",
+                "http://www.opengis.net/def/crs/EPSG/0/32630",
+                "http://www.opengis.net/def/crs/EPSG/0/32631",
+                "http://www.opengis.net/def/crs/EPSG/0/32632",
+                "http://www.opengis.net/def/crs/EPSG/0/32633",
+                "http://www.opengis.net/def/crs/EPSG/0/32634",
+                "http://www.opengis.net/def/crs/EPSG/0/32635",
+                "http://www.opengis.net/def/crs/EPSG/0/32636",
+                "http://www.opengis.net/def/crs/EPSG/0/32637",
+                "http://www.opengis.net/def/crs/EPSG/0/32638",
+                "http://www.opengis.net/def/crs/EPSG/0/32639",
+                "http://www.opengis.net/def/crs/EPSG/0/32640",
+                "http://www.opengis.net/def/crs/EPSG/0/32641",
+                "http://www.opengis.net/def/crs/EPSG/0/32642",
+                "http://www.opengis.net/def/crs/EPSG/0/32643",
+                "http://www.opengis.net/def/crs/EPSG/0/32644",
+                "http://www.opengis.net/def/crs/EPSG/0/32645",
+                "http://www.opengis.net/def/crs/EPSG/0/32646",
+                "http://www.opengis.net/def/crs/EPSG/0/32647",
+                "http://www.opengis.net/def/crs/EPSG/0/32648",
+                "http://www.opengis.net/def/crs/EPSG/0/32649",
+                "http://www.opengis.net/def/crs/EPSG/0/32650",
+                "http://www.opengis.net/def/crs/EPSG/0/32651",
+                "http://www.opengis.net/def/crs/EPSG/0/32652",
+                "http://www.opengis.net/def/crs/EPSG/0/32653",
+                "http://www.opengis.net/def/crs/EPSG/0/32654",
+                "http://www.opengis.net/def/crs/EPSG/0/32655",
+                "http://www.opengis.net/def/crs/EPSG/0/32656",
+                "http://www.opengis.net/def/crs/EPSG/0/32657",
+                "http://www.opengis.net/def/crs/EPSG/0/32658",
+                "http://www.opengis.net/def/crs/EPSG/0/32659",
+                "http://www.opengis.net/def/crs/EPSG/0/32660",
+                "http://www.opengis.net/def/crs/EPSG/0/32701",
+                "http://www.opengis.net/def/crs/EPSG/0/32702",
+                "http://www.opengis.net/def/crs/EPSG/0/32703",
+                "http://www.opengis.net/def/crs/EPSG/0/32704",
+                "http://www.opengis.net/def/crs/EPSG/0/32705",
+                "http://www.opengis.net/def/crs/EPSG/0/32706",
+                "http://www.opengis.net/def/crs/EPSG/0/32707",
+                "http://www.opengis.net/def/crs/EPSG/0/32708",
+                "http://www.opengis.net/def/crs/EPSG/0/32709",
+                "http://www.opengis.net/def/crs/EPSG/0/32710",
+                "http://www.opengis.net/def/crs/EPSG/0/32711",
+                "http://www.opengis.net/def/crs/EPSG/0/32712",
+                "http://www.opengis.net/def/crs/EPSG/0/32713",
+                "http://www.opengis.net/def/crs/EPSG/0/32714",
+                "http://www.opengis.net/def/crs/EPSG/0/32715",
+                "http://www.opengis.net/def/crs/EPSG/0/32716",
+                "http://www.opengis.net/def/crs/EPSG/0/32717",
+                "http://www.opengis.net/def/crs/EPSG/0/32718",
+                "http://www.opengis.net/def/crs/EPSG/0/32719",
+                "http://www.opengis.net/def/crs/EPSG/0/32720",
+                "http://www.opengis.net/def/crs/EPSG/0/32721",
+                "http://www.opengis.net/def/crs/EPSG/0/32722",
+                "http://www.opengis.net/def/crs/EPSG/0/32723",
+                "http://www.opengis.net/def/crs/EPSG/0/32724",
+                "http://www.opengis.net/def/crs/EPSG/0/32725",
+                "http://www.opengis.net/def/crs/EPSG/0/32726",
+                "http://www.opengis.net/def/crs/EPSG/0/32727",
+                "http://www.opengis.net/def/crs/EPSG/0/32728",
+                "http://www.opengis.net/def/crs/EPSG/0/32729",
+                "http://www.opengis.net/def/crs/EPSG/0/32730",
+                "http://www.opengis.net/def/crs/EPSG/0/32731",
+                "http://www.opengis.net/def/crs/EPSG/0/32732",
+                "http://www.opengis.net/def/crs/EPSG/0/32733",
+                "http://www.opengis.net/def/crs/EPSG/0/32734",
+                "http://www.opengis.net/def/crs/EPSG/0/32735",
+                "http://www.opengis.net/def/crs/EPSG/0/32736",
+                "http://www.opengis.net/def/crs/EPSG/0/32737",
+                "http://www.opengis.net/def/crs/EPSG/0/32738",
+                "http://www.opengis.net/def/crs/EPSG/0/32739",
+                "http://www.opengis.net/def/crs/EPSG/0/32740",
+                "http://www.opengis.net/def/crs/EPSG/0/32741",
+                "http://www.opengis.net/def/crs/EPSG/0/32742",
+                "http://www.opengis.net/def/crs/EPSG/0/32743",
+                "http://www.opengis.net/def/crs/EPSG/0/32744",
+                "http://www.opengis.net/def/crs/EPSG/0/32745",
+                "http://www.opengis.net/def/crs/EPSG/0/32746",
+                "http://www.opengis.net/def/crs/EPSG/0/32746",
+                "http://www.opengis.net/def/crs/EPSG/0/32748",
+                "http://www.opengis.net/def/crs/EPSG/0/32749",
+                "http://www.opengis.net/def/crs/EPSG/0/32750",
+                "http://www.opengis.net/def/crs/EPSG/0/32751",
+                "http://www.opengis.net/def/crs/EPSG/0/32752",
+                "http://www.opengis.net/def/crs/EPSG/0/32753",
+                "http://www.opengis.net/def/crs/EPSG/0/32754",
+                "http://www.opengis.net/def/crs/EPSG/0/32755",
+                "http://www.opengis.net/def/crs/EPSG/0/32756",
+                "http://www.opengis.net/def/crs/EPSG/0/32757",
+                "http://www.opengis.net/def/crs/EPSG/0/32758",
+                "http://www.opengis.net/def/crs/EPSG/0/32759",
+                "http://www.opengis.net/def/crs/EPSG/0/32760",
+                "http://www.opengis.net/def/crs/SR-ORG/0/98739"
+            ],
+            "cube:dimensions": {
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "B01",
+                        "B02",
+                        "B03",
+                        "B04",
+                        "B05",
+                        "B06",
+                        "B07",
+                        "B08",
+                        "B09",
+                        "B10",
+                        "B11",
+                        "B12",
+                        "B13",
+                        "B14",
+                        "B15",
+                        "B16",
+                        "B17",
+                        "B18",
+                        "B19",
+                        "B20",
+                        "B21",
+                        "SAA",
+                        "SZA",
+                        "VAA",
+                        "VZA",
+                        "HUMIDITY",
+                        "SEA_LEVEL_PRESSURE",
+                        "TOTAL_COLUMN_OZONE",
+                        "TOTAL_COLUMN_WATER_VAPOUR",
+                        "dataMask"
+                    ]
+                },
+                "t": {
+                    "extent": [
+                        "2016-04-17T11:33:13Z",
+                        null
+                    ],
+                    "step": "P2D",
+                    "type": "temporal"
+                },
+                "x": {
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ],
+                    "reference_system": 4326,
+                    "type": "spatial"
+                },
+                "y": {
+                    "axis": "y",
+                    "extent": [
+                        -85,
+                        85
+                    ],
+                    "reference_system": 4326,
+                    "type": "spatial"
+                }
+            },
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -85,
+                            180,
+                            85
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2016-04-17T11:33:13Z",
+                            null
+                        ]
+                    ]
+                }
+            },
+            "keywords": [
+                "sentinel hub",
+                "xcube",
+                "raster",
+                "systematic",
+                "satellite imagery",
+                "multi spectral imagery",
+                "climate",
+                "atmospheric aerosols",
+                "marine biology",
+                "maritime monitoring",
+                "OTCI",
+                "open data",
+                "race challenges",
+                "copernicus",
+                "sentinel"
+            ],
+            "license": "proprietary",
+            "links": [
+                {
+                    "href": "https://dataspace.copernicus.eu/browser/?zoom=7&lat=46.66688&lng=6.96272&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F82f84fab-9b1c-4322-beeb-207b0f05afef&datasetId=S3OLCI_CDAS&fromTime=2023-05-08T00%3A00%3A00.000Z&toTime=2023-05-08T23%3A59%3A59.999Z&layerId=1_TRUE_COLOR&minQa=0&demSource3D=%22MAPZEN%22&cloudCoverage=30",
+                    "title": "CDSE Data-Browser",
+                    "rel": "browser"
+                },
+                {
+                    "href": "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-3-olci/product-types/level-1b",
+                    "title": "User guide",
+                    "rel": "about"
+                },
+                {
+                    "href": "https://catalogue.dataspace.copernicus.eu/resto/api/collections/Sentinel3/search.json",
+                    "rel": "opensearch"
+                },
+                {
+                    "href": "https://creodias.sentinel-hub.com/ogc/wmts/b486fc4b-9c05-49f0-8360-a31df5c691c0",
+                    "rel": "wmts",
+                    "wmts:dimensions": {
+                        "warnings": true
+                    },
+                    "wmts:layer": "TRUE-COLOR"
+                },
+                {
+                    "href": "https://docs.sentinel-hub.com/api/latest/api/process/",
+                    "rel": "about",
+                    "title": "Details about running Evalscripts",
+                    "type": "text/html"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/sentinel-3/enhanced_true_color-2/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "True color - enhanced",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate True color - enhanced imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/sentinel-3/true_color_highlight_optimized/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "True color - highlight optimized",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate True color - highlight optimized imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/sentinel-3/otci/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "OTCI",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "NEAREST",
+                    "title": "Evalscript to generate OTCI imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/sentinel-3/tristimulus/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "Tristimulus",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "NEAREST",
+                    "title": "Evalscript to generate Tristimulus imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://docs.sentinel-hub.com/api/latest/data/sentinel-1-grd/#attribution-and-use",
+                    "rel": "license",
+                    "title": "License",
+                    "type": "text/html"
+                },
+                {
+                    "href": "https://openeocloud.vito.be/openeo/1.0.0/collections",
+                    "rel": "root"
+                },
+                {
+                    "href": "https://openeocloud.vito.be/openeo/1.0.0/collections",
+                    "rel": "parent"
+                },
+                {
+                    "href": "https://openeocloud.vito.be/openeo/1.0.0/collections/SENTINEL3_OLCI_L1B",
+                    "rel": "self"
+                }
+            ],
+            "sci:citation": "Modified Copernicus Sentinel data [Year]/Sentinel Hub",
+            "stac_extensions": [
+                "https://stac-extensions.github.io/datacube/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
+            ],
+            "stac_version": "1.0.0",
+            "summaries": {
+                "eo:bands": [
+                    {
+                        "center_wavelength": 0.4,
+                        "full_width_half_max": 0.015,
+                        "name": "B01"
+                    },
+                    {
+                        "center_wavelength": 0.4125,
+                        "full_width_half_max": 0.01,
+                        "name": "B02"
+                    },
+                    {
+                        "center_wavelength": 0.4425,
+                        "full_width_half_max": 0.01,
+                        "name": "B03"
+                    },
+                    {
+                        "center_wavelength": 0.49,
+                        "full_width_half_max": 0.01,
+                        "name": "B04"
+                    },
+                    {
+                        "center_wavelength": 0.51,
+                        "full_width_half_max": 0.01,
+                        "name": "B05"
+                    },
+                    {
+                        "center_wavelength": 0.56,
+                        "full_width_half_max": 0.01,
+                        "name": "B06"
+                    },
+                    {
+                        "center_wavelength": 0.62,
+                        "full_width_half_max": 0.01,
+                        "name": "B07"
+                    },
+                    {
+                        "center_wavelength": 0.665,
+                        "full_width_half_max": 0.01,
+                        "name": "B08"
+                    },
+                    {
+                        "center_wavelength": 0.67375,
+                        "full_width_half_max": 0.0075,
+                        "name": "B09"
+                    },
+                    {
+                        "center_wavelength": 0.68125,
+                        "full_width_half_max": 0.0075,
+                        "name": "B10"
+                    },
+                    {
+                        "center_wavelength": 0.70875,
+                        "full_width_half_max": 0.01,
+                        "name": "B11"
+                    },
+                    {
+                        "center_wavelength": 0.75375,
+                        "full_width_half_max": 0.0075,
+                        "name": "B12"
+                    },
+                    {
+                        "center_wavelength": 0.76125,
+                        "full_width_half_max": 0.0025,
+                        "name": "B13"
+                    },
+                    {
+                        "center_wavelength": 0.764375,
+                        "full_width_half_max": 0.00375,
+                        "name": "B14"
+                    },
+                    {
+                        "center_wavelength": 0.7675,
+                        "full_width_half_max": 0.0025,
+                        "name": "B15"
+                    },
+                    {
+                        "center_wavelength": 0.77875,
+                        "full_width_half_max": 0.015,
+                        "name": "B16"
+                    },
+                    {
+                        "center_wavelength": 0.865,
+                        "full_width_half_max": 0.02,
+                        "name": "B17"
+                    },
+                    {
+                        "center_wavelength": 0.885,
+                        "full_width_half_max": 0.01,
+                        "name": "B18"
+                    },
+                    {
+                        "center_wavelength": 0.9,
+                        "full_width_half_max": 0.01,
+                        "name": "B19"
+                    },
+                    {
+                        "center_wavelength": 0.94,
+                        "full_width_half_max": 0.02,
+                        "name": "B20"
+                    },
+                    {
+                        "center_wavelength": 1.02,
+                        "full_width_half_max": 0.04,
+                        "name": "B21"
+                    },
+                    {
+                        "name": "SAA"
+                    },
+                    {
+                        "name": "SZA"
+                    },
+                    {
+                        "name": "VAA"
+                    },
+                    {
+                        "name": "VZA"
+                    },
+                    {
+                        "name": "HUMIDITY"
+                    },
+                    {
+                        "name": "SEA_LEVEL_PRESSURE"
+                    },
+                    {
+                        "name": "TOTAL_COLUMN_OZONE"
+                    },
+                    {
+                        "name": "TOTAL_COLUMN_WATER_VAPOUR"
+                    },
+                    {
+                        "name": "dataMask"
+                    }
+                ],
+                "gsd": [
+                    300
+                ],
+                "instruments": [
+                    "olci"
+                ],
+                "platform": [
+                    "sentinel-3a",
+                    "sentinel-3b"
+                ]
+            }
         },
         {
-            "id": "SENTINEL1_GRD_EW",
-            "title": "Sentinel-1 ground range detected EW",
-            "description": "",
-            "mission": "",
-            "gsd": 10
+            "title": "Sentinel-3 SLSTR L1B",
+            "type": "Collection",
+            "id": "SENTINEL3_SLSTR_L1B",
+            "mission":"Sentinel-3",
+            "description": "The [Sentinel -3](https://sentinel.esa.int/web/sentinel/missions/sentinel-3) is composed of three versatile satellites designed \nto provide data continuity for the ERS, ENVISAT and SPOT satellites and to support operational land and ocean observation services.\nSentinel -3 satellites make use of four main instruments on board; OLCI, SLSTR, SRAL and MWR, to measure sea surface topography, \nsea and land surface temperature and ocean and land surface color.\nThe SLSTR (Sea and Land Surface Temperature Radiometer ) continues the timeline of Sea Surface Temperature measurements from the ATSR instrument series. \nThe principal objective of SLSTR products is to provide global and regional Sea and Land Surface Temperature (SST, LST) \nto a very high level of accuracy (better than 0.3 K for SST) for both climatological and meteorological applications.\nLevel 1B provides calibrated and ortho-geolocated Top Of Atmosphere (TOA) radiances for the 6 VNIR/SWIR bands \nand TOA brightness temperatures for the thermal IR and active fire channels.\n",
+            "assets": {
+                "thumbnail": {
+                    "href": "https://collections.eurodatacube.com/sentinel-3-l1b-slstr/sentinel-3-l1b-slstr.png",
+                    "roles": [
+                        "thumbnail"
+                    ],
+                    "title": "Thumbnail",
+                    "type": "image/png"
+                }
+            },
+            "crs": [
+                "http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+                "http://www.opengis.net/def/crs/EPSG/0/2154",
+                "http://www.opengis.net/def/crs/EPSG/0/2180",
+                "http://www.opengis.net/def/crs/EPSG/0/2193",
+                "http://www.opengis.net/def/crs/EPSG/0/3003",
+                "http://www.opengis.net/def/crs/EPSG/0/3004",
+                "http://www.opengis.net/def/crs/EPSG/0/3031",
+                "http://www.opengis.net/def/crs/EPSG/0/3035",
+                "http://www.opengis.net/def/crs/EPSG/0/4326",
+                "http://www.opengis.net/def/crs/EPSG/0/4346",
+                "http://www.opengis.net/def/crs/EPSG/0/4416",
+                "http://www.opengis.net/def/crs/EPSG/0/4765",
+                "http://www.opengis.net/def/crs/EPSG/0/4794",
+                "http://www.opengis.net/def/crs/EPSG/0/4844",
+                "http://www.opengis.net/def/crs/EPSG/0/4857",
+                "http://www.opengis.net/def/crs/EPSG/0/3912",
+                "http://www.opengis.net/def/crs/EPSG/0/3995",
+                "http://www.opengis.net/def/crs/EPSG/0/4026",
+                "http://www.opengis.net/def/crs/EPSG/0/5514",
+                "http://www.opengis.net/def/crs/EPSG/0/28992",
+                "http://www.opengis.net/def/crs/EPSG/0/32601",
+                "http://www.opengis.net/def/crs/EPSG/0/32602",
+                "http://www.opengis.net/def/crs/EPSG/0/32603",
+                "http://www.opengis.net/def/crs/EPSG/0/32604",
+                "http://www.opengis.net/def/crs/EPSG/0/32605",
+                "http://www.opengis.net/def/crs/EPSG/0/32606",
+                "http://www.opengis.net/def/crs/EPSG/0/32607",
+                "http://www.opengis.net/def/crs/EPSG/0/32608",
+                "http://www.opengis.net/def/crs/EPSG/0/32609",
+                "http://www.opengis.net/def/crs/EPSG/0/32610",
+                "http://www.opengis.net/def/crs/EPSG/0/32611",
+                "http://www.opengis.net/def/crs/EPSG/0/32612",
+                "http://www.opengis.net/def/crs/EPSG/0/32613",
+                "http://www.opengis.net/def/crs/EPSG/0/32614",
+                "http://www.opengis.net/def/crs/EPSG/0/32615",
+                "http://www.opengis.net/def/crs/EPSG/0/32616",
+                "http://www.opengis.net/def/crs/EPSG/0/32617",
+                "http://www.opengis.net/def/crs/EPSG/0/32618",
+                "http://www.opengis.net/def/crs/EPSG/0/32619",
+                "http://www.opengis.net/def/crs/EPSG/0/32620",
+                "http://www.opengis.net/def/crs/EPSG/0/32621",
+                "http://www.opengis.net/def/crs/EPSG/0/32622",
+                "http://www.opengis.net/def/crs/EPSG/0/32623",
+                "http://www.opengis.net/def/crs/EPSG/0/32624",
+                "http://www.opengis.net/def/crs/EPSG/0/32625",
+                "http://www.opengis.net/def/crs/EPSG/0/32626",
+                "http://www.opengis.net/def/crs/EPSG/0/32627",
+                "http://www.opengis.net/def/crs/EPSG/0/32628",
+                "http://www.opengis.net/def/crs/EPSG/0/32629",
+                "http://www.opengis.net/def/crs/EPSG/0/32630",
+                "http://www.opengis.net/def/crs/EPSG/0/32631",
+                "http://www.opengis.net/def/crs/EPSG/0/32632",
+                "http://www.opengis.net/def/crs/EPSG/0/32633",
+                "http://www.opengis.net/def/crs/EPSG/0/32634",
+                "http://www.opengis.net/def/crs/EPSG/0/32635",
+                "http://www.opengis.net/def/crs/EPSG/0/32636",
+                "http://www.opengis.net/def/crs/EPSG/0/32637",
+                "http://www.opengis.net/def/crs/EPSG/0/32638",
+                "http://www.opengis.net/def/crs/EPSG/0/32639",
+                "http://www.opengis.net/def/crs/EPSG/0/32640",
+                "http://www.opengis.net/def/crs/EPSG/0/32641",
+                "http://www.opengis.net/def/crs/EPSG/0/32642",
+                "http://www.opengis.net/def/crs/EPSG/0/32643",
+                "http://www.opengis.net/def/crs/EPSG/0/32644",
+                "http://www.opengis.net/def/crs/EPSG/0/32645",
+                "http://www.opengis.net/def/crs/EPSG/0/32646",
+                "http://www.opengis.net/def/crs/EPSG/0/32647",
+                "http://www.opengis.net/def/crs/EPSG/0/32648",
+                "http://www.opengis.net/def/crs/EPSG/0/32649",
+                "http://www.opengis.net/def/crs/EPSG/0/32650",
+                "http://www.opengis.net/def/crs/EPSG/0/32651",
+                "http://www.opengis.net/def/crs/EPSG/0/32652",
+                "http://www.opengis.net/def/crs/EPSG/0/32653",
+                "http://www.opengis.net/def/crs/EPSG/0/32654",
+                "http://www.opengis.net/def/crs/EPSG/0/32655",
+                "http://www.opengis.net/def/crs/EPSG/0/32656",
+                "http://www.opengis.net/def/crs/EPSG/0/32657",
+                "http://www.opengis.net/def/crs/EPSG/0/32658",
+                "http://www.opengis.net/def/crs/EPSG/0/32659",
+                "http://www.opengis.net/def/crs/EPSG/0/32660",
+                "http://www.opengis.net/def/crs/EPSG/0/32701",
+                "http://www.opengis.net/def/crs/EPSG/0/32702",
+                "http://www.opengis.net/def/crs/EPSG/0/32703",
+                "http://www.opengis.net/def/crs/EPSG/0/32704",
+                "http://www.opengis.net/def/crs/EPSG/0/32705",
+                "http://www.opengis.net/def/crs/EPSG/0/32706",
+                "http://www.opengis.net/def/crs/EPSG/0/32707",
+                "http://www.opengis.net/def/crs/EPSG/0/32708",
+                "http://www.opengis.net/def/crs/EPSG/0/32709",
+                "http://www.opengis.net/def/crs/EPSG/0/32710",
+                "http://www.opengis.net/def/crs/EPSG/0/32711",
+                "http://www.opengis.net/def/crs/EPSG/0/32712",
+                "http://www.opengis.net/def/crs/EPSG/0/32713",
+                "http://www.opengis.net/def/crs/EPSG/0/32714",
+                "http://www.opengis.net/def/crs/EPSG/0/32715",
+                "http://www.opengis.net/def/crs/EPSG/0/32716",
+                "http://www.opengis.net/def/crs/EPSG/0/32717",
+                "http://www.opengis.net/def/crs/EPSG/0/32718",
+                "http://www.opengis.net/def/crs/EPSG/0/32719",
+                "http://www.opengis.net/def/crs/EPSG/0/32720",
+                "http://www.opengis.net/def/crs/EPSG/0/32721",
+                "http://www.opengis.net/def/crs/EPSG/0/32722",
+                "http://www.opengis.net/def/crs/EPSG/0/32723",
+                "http://www.opengis.net/def/crs/EPSG/0/32724",
+                "http://www.opengis.net/def/crs/EPSG/0/32725",
+                "http://www.opengis.net/def/crs/EPSG/0/32726",
+                "http://www.opengis.net/def/crs/EPSG/0/32727",
+                "http://www.opengis.net/def/crs/EPSG/0/32728",
+                "http://www.opengis.net/def/crs/EPSG/0/32729",
+                "http://www.opengis.net/def/crs/EPSG/0/32730",
+                "http://www.opengis.net/def/crs/EPSG/0/32731",
+                "http://www.opengis.net/def/crs/EPSG/0/32732",
+                "http://www.opengis.net/def/crs/EPSG/0/32733",
+                "http://www.opengis.net/def/crs/EPSG/0/32734",
+                "http://www.opengis.net/def/crs/EPSG/0/32735",
+                "http://www.opengis.net/def/crs/EPSG/0/32736",
+                "http://www.opengis.net/def/crs/EPSG/0/32737",
+                "http://www.opengis.net/def/crs/EPSG/0/32738",
+                "http://www.opengis.net/def/crs/EPSG/0/32739",
+                "http://www.opengis.net/def/crs/EPSG/0/32740",
+                "http://www.opengis.net/def/crs/EPSG/0/32741",
+                "http://www.opengis.net/def/crs/EPSG/0/32742",
+                "http://www.opengis.net/def/crs/EPSG/0/32743",
+                "http://www.opengis.net/def/crs/EPSG/0/32744",
+                "http://www.opengis.net/def/crs/EPSG/0/32745",
+                "http://www.opengis.net/def/crs/EPSG/0/32746",
+                "http://www.opengis.net/def/crs/EPSG/0/32746",
+                "http://www.opengis.net/def/crs/EPSG/0/32748",
+                "http://www.opengis.net/def/crs/EPSG/0/32749",
+                "http://www.opengis.net/def/crs/EPSG/0/32750",
+                "http://www.opengis.net/def/crs/EPSG/0/32751",
+                "http://www.opengis.net/def/crs/EPSG/0/32752",
+                "http://www.opengis.net/def/crs/EPSG/0/32753",
+                "http://www.opengis.net/def/crs/EPSG/0/32754",
+                "http://www.opengis.net/def/crs/EPSG/0/32755",
+                "http://www.opengis.net/def/crs/EPSG/0/32756",
+                "http://www.opengis.net/def/crs/EPSG/0/32757",
+                "http://www.opengis.net/def/crs/EPSG/0/32758",
+                "http://www.opengis.net/def/crs/EPSG/0/32759",
+                "http://www.opengis.net/def/crs/EPSG/0/32760",
+                "http://www.opengis.net/def/crs/SR-ORG/0/98739"
+            ],
+            "cube:dimensions": {
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "S1",
+                        "S2",
+                        "S3",
+                        "S4",
+                        "S5",
+                        "S6",
+                        "S7",
+                        "S8",
+                        "S9",
+                        "F1",
+                        "F2",
+                        "dataMask"
+                    ]
+                },
+                "t": {
+                    "extent": [
+                        "2016-04-17T11:33:13Z",
+                        null
+                    ],
+                    "step": "P1D",
+                    "type": "temporal"
+                },
+                "x": {
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ],
+                    "reference_system": 4326,
+                    "type": "spatial"
+                },
+                "y": {
+                    "axis": "y",
+                    "extent": [
+                        -85,
+                        85
+                    ],
+                    "reference_system": 4326,
+                    "type": "spatial"
+                }
+            },
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -85,
+                            180,
+                            85
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2016-04-17T11:33:13Z",
+                            null
+                        ]
+                    ]
+                }
+            },
+            "keywords": [
+                "sentinel hub",
+                "xcube",
+                "raster",
+                "systematic",
+                "multi spectral imagery",
+                "climate",
+                "atmospheric aerosols",
+                "LST",
+                "SST",
+                "active fires",
+                "open data",
+                "race challenges",
+                "copernicus",
+                "sentinel"
+            ],
+            "license": "proprietary",
+            "links": [
+                {
+                    "href": "https://dataspace.copernicus.eu/browser/?zoom=7&lat=46.66688&lng=6.96272&themeId=DEFAULT-THEME&visualizationUrl=https%3A%2F%2Fsh.dataspace.copernicus.eu%2Fogc%2Fwms%2F786d8259-f04e-41cb-92fa-42f66a890ff9&datasetId=S3SLSTR_CDAS&fromTime=2023-05-05T00%3A00%3A00.000Z&toTime=2023-05-05T23%3A59%3A59.999Z&layerId=F1_VISUALIZED&minQa=0&demSource3D=%22MAPZEN%22&cloudCoverage=30",
+                    "title": "CDSE Data-Browser",
+                    "rel": "browser"
+                },
+                {
+                    "href": "https://sentinel.esa.int/web/sentinel/user-guides/Sentinel-3-slstr/product-types/level-1b",
+                    "title": "User guide",
+                    "rel": "about"
+                },
+                {
+                    "href": "https://catalogue.dataspace.copernicus.eu/resto/api/collections/Sentinel3/search.json",
+                    "rel": "opensearch"
+                },
+                {
+                    "href": "https://creodias.sentinel-hub.com/ogc/wmts/cf579fd9-135d-4597-b7dc-72e67bb5cf13",
+                    "rel": "wmts",
+                    "wmts:dimensions": {
+                        "warnings": true
+                    },
+                    "wmts:layer": "F1-BRIGHTNESS-TEMPERATURE"
+                },
+                {
+                    "href": "https://docs.sentinel-hub.com/api/latest/api/process/",
+                    "rel": "about",
+                    "title": "Details about running Evalscripts",
+                    "type": "text/html"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/slstr/false-color-321/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "False Color based on bands S3, S2, and S1",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate False Color based on bands S3, S2, and S1 imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://custom-scripts.sentinel-hub.com/slstr/f1-brightness-temperature/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "F1 Brightness Temperature",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate F1 Brightness Temperature imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "https://docs.sentinel-hub.com/api/latest/data/sentinel-3-slstr-l1b/#attribution-and-use",
+                    "rel": "license",
+                    "title": "License",
+                    "type": "text/html"
+                },
+                {
+                    "href": "https://openeocloud.vito.be/openeo/1.0.0/collections",
+                    "rel": "root"
+                },
+                {
+                    "href": "https://openeocloud.vito.be/openeo/1.0.0/collections",
+                    "rel": "parent"
+                },
+                {
+                    "href": "https://openeocloud.vito.be/openeo/1.0.0/collections/SENTINEL3_SLSTR",
+                    "rel": "self"
+                }
+            ],
+            "sci:citation": "Modified Copernicus Sentinel data [Year]/Sentinel Hub",
+            "stac_extensions": [
+                "https://stac-extensions.github.io/datacube/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/scientific/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/eo/v1.0.0/schema.json",
+                "https://stac-extensions.github.io/sat/v1.0.0/schema.json"
+            ],
+            "stac_version": "1.0.0"
         },
         {
-            "id": "SENTINEL1_SLC",
-            "title": "Sentinel-1 single look complex",
-            "description": "Full archive of Sentinel-1 Single Look Complex (SLC) products.",
-            "mission": "",
-            "gsd": 10
+            "id": "Sentinel_5P_AER_AI",
+            "description": "### NRTI/L3_AER_AI\n\nThis dataset provides near real-time high-resolution imagery of the UV Aerosol Index\n(UVAI), also called the Absorbing Aerosol Index (AAI).\n\nThe AAI is based on wavelength-dependent changes in Rayleigh scattering in\nthe UV spectral range for a pair of wavelengths.  The difference between\nobserved and modelled reflectance results in the AAI.  When the AAI is\npositive, it indicates the presence of UV-absorbing aerosols like dust and\nsmoke. It is useful for tracking the evolution of episodic aerosol plumes from\ndust outbreaks, volcanic ash, and biomass burning.\n\nThe wavelengths used have very low ozone absorption, so unlike aerosol optical\nthickness measurements, AAI can be calculated in the presence of clouds.\nDaily global coverage is therefore possible.\n\nFor this L3 AER_AI product, the absorbing_aerosol_index is calculated with a\npair of measurements at the 354 nm and 388 nm wavelengths.\n\n### NRTI L3 Product\n\nTo make our NRTI L3 products, we use\n[harpconvert](https://stcorp.github.io/harp/doc/html/harpconvert.html) to grid the data.\n\nExample harpconvert invocation for one tile:\n```\nharpconvert --format hdf5 --hdf5-compression 9\n-a 'absorbing_aerosol_index_validity>50;derive(datetime_stop {time});\nbin_spatial(2001, 50.000000, 0.01, 2001, -120.000000, 0.01);\nkeep(absorbing_aerosol_index,sensor_altitude,sensor_azimuth_angle,\n     sensor_zenith_angle,solar_azimuth_angle,solar_zenith_angle)'\nS5P_NRTI_L2__AER_AI_20181113T080042_20181113T080542_05618_01_010200_20181113T083707.nc\noutput.h5\n```\n\n### Sentinel-5 Precursor\n\nSentinel-5 Precursor is a satellite launched on 13 October 2017\nby the European Space Agency to monitor air pollution.  The onboard sensor\nis frequently referred to as Tropomi (TROPOspheric Monitoring Instrument).\n\nAll of the S5P datasets, except CH<sub>4</sub>, have two versions: Near Real-Time (NRTI) and Offline\n(OFFL). CH<sub>4</sub> is available as OFFL only. The NRTI assets cover a smaller area than the OFFL\nassets, but appear more quickly after acquisition.  The OFFL assets contain data\nfrom a single orbit (which, due to half the earth being dark, contains\ndata only for a single hemisphere).\n\nBecause of noise on the data, negative vertical column values are often\nobserved in particular over clean regions or for low SO2 emissions. It is\nrecommended not to filter these values except for outliers, i.e.\nfor vertical columns lower than -0.001 mol/m^2.\n\nThe original Sentinel 5P Level 2 (L2) data is binned\nby time, not by latitude/longitude.  To make it possible to ingest the data\ninto Earth Engine, each Sentinel 5P L2 product is converted to L3, keeping\na single grid per orbit (that is, no aggregation across products\nis performed).\n\nSource products spanning the antimeridian are ingested as two Earth Engine\nassets, with suffixes _1 and _2.\n\nThe conversion to L3 is done by the [harpconvert](https://cdn.rawgit.com/stcorp/harp/master/doc/html/harpconvert.html)\ntool using the `bin_spatial` operation.  The source data is filtered to\nremove pixels with QA values less than:\n\n*  80% for AER_AI\n*  75% for the tropospheric_NO2_column_number_density band of NO2\n*  50% for all other datasets except for O3 and SO2\n\nThe O3_TCL product is ingested directly (without running harpconvert).\n",
+            "gsd": 1113.2,
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -90,
+                            180,
+                            90
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2018-07-10T11:17:44Z",
+                            "2023-01-29T02:38:00"
+                        ]
+                    ]
+                }
+            },
+            "keywords": [
+                "aai",
+                "aerosol",
+                "air_quality",
+                "copernicus",
+                "esa",
+                "eu",
+                "knmi",
+                "pollution",
+                "s5p",
+                "sentinel",
+                "tropomi",
+                "uvai"
+            ],
+            "license": "proprietary",
+            "links": [
+                {
+                    "href": "https://earthengine.openeo.org/v1.0/collections/COPERNICUS/S5P/NRTI/L3_AER_AI",
+                    "rel": "self",
+                    "type": "application/json"
+                },
+                {
+                    "href": "https://earthengine.openeo.org/v1.0/collections",
+                    "rel": "parent",
+                    "type": "application/json"
+                },
+                {
+                    "href": "https://earthengine.openeo.org/v1.0/",
+                    "rel": "root",
+                    "type": "application/json"
+                },
+                {
+                    "code": "JavaScript",
+                    "href": "https://code.earthengine.google.com/?scriptPath=Examples:Datasets/COPERNICUS_S5P_NRTI_L3_AER_AI",
+                    "rel": "related",
+                    "title": "Run the example for COPERNICUS/S5P/NRTI/L3_AER_AI in the Earth Engine Code Editor",
+                    "type": "text/html"
+                },
+                {
+                    "href": "https://developers.google.com/earth-engine/datasets/images/COPERNICUS/COPERNICUS_S5P_NRTI_L3_AER_AI_sample.png",
+                    "rel": "preview",
+                    "type": "image/png"
+                },
+                {
+                    "href": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_AER_AI#terms-of-use",
+                    "rel": "license",
+                    "type": "text/html"
+                }
+            ],
+            "providers": [
+                {
+                    "name": "European Union/ESA/Copernicus",
+                    "roles": [
+                        "licensor",
+                        "producer"
+                    ],
+                    "url": "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-5p-tropomi"
+                },
+                {
+                    "name": "Google Earth Engine",
+                    "roles": [
+                        "host"
+                    ],
+                    "url": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S5P_NRTI_L3_AER_AI"
+                }
+            ],
+            "stac_extensions": [
+                "collection-assets"
+            ],
+            "stac_version": "1.0.0",
+            "summaries": {
+                "absorbing_aerosol_index": {
+                    "gee:estimated_range": true,
+                    "maximum": 39,
+                    "minimum": -25
+                },
+                "eo:bands": [
+                    {
+                        "description": "A measure of the prevalence of aerosols in the atmosphere, calculated by\n[this equation](https://earth.esa.int/web/sentinel/technical-guides/sentinel-5p/level-2/aerosol-index) using the 354/388 wavelength pair.\n",
+                        "name": "absorbing_aerosol_index"
+                    },
+                    {
+                        "description": "Altitude of the satellite with respect to the geodetic sub-satellite point\n(WGS84).",
+                        "gee:units": "m",
+                        "name": "sensor_altitude"
+                    },
+                    {
+                        "description": "Azimuth angle of the satellite at the ground pixel location (WGS84); angle\nmeasured East-of-North.",
+                        "gee:units": "degrees",
+                        "name": "sensor_azimuth_angle"
+                    },
+                    {
+                        "description": "Zenith angle of the satellite at the ground pixel location (WGS84); angle\nmeasured away from the vertical.\n",
+                        "gee:units": "degrees",
+                        "name": "sensor_zenith_angle"
+                    },
+                    {
+                        "description": "Azimuth angle of the Sun at the ground pixel location (WGS84); angle\nmeasured East-of-North.",
+                        "gee:units": "degrees",
+                        "name": "solar_azimuth_angle"
+                    },
+                    {
+                        "description": "Zenith angle of the satellite at the ground pixel location (WGS84); angle\nmeasured away from the vertical.\n",
+                        "gee:units": "degrees",
+                        "name": "solar_zenith_angle"
+                    }
+                ],
+                "gee:schema": [
+                    {
+                        "description": "The algorithm version used in L2 processing. It is separate from the\nprocessor (framework) version, to accommodate different release\nschedules for different products.\n",
+                        "name": "ALGORITHM_VERSION",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "The date, expressed as milliseconds since 1 Jan 1970,\nwhen the software used to perform L2 processing was built.\n",
+                        "name": "BUILD_DATE",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "The version of the HARP tool used to grid the L2 data into an L3\nproduct.",
+                        "name": "HARP_VERSION",
+                        "type": "INT"
+                    },
+                    {
+                        "description": "The institution where data processing from L1 to L2 was performed.",
+                        "name": "INSTITUTION",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "The date, expressed as milliseconds since 1 Jan 1970,\nwhen Google processed the L2 data into L3 using harpconvert.\n",
+                        "name": "L3_PROCESSING_TIME",
+                        "type": "INT"
+                    },
+                    {
+                        "description": "The maximum latitude of the asset (degrees).",
+                        "name": "LAT_MAX",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "description": "The minimum latitude of the asset (degrees).",
+                        "name": "LAT_MIN",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "description": "The maximum longitude of the asset (degrees).",
+                        "name": "LON_MAX",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "description": "The minimum longitude of the asset (degrees).",
+                        "name": "LON_MIN",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "description": "The orbit number of the satellite when the data was acquired.",
+                        "name": "ORBIT",
+                        "type": "INT"
+                    },
+                    {
+                        "description": "Name of the platform which acquired the data.",
+                        "name": "PLATFORM",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "The processing status of the product on a global level, mainly based\non the availability of auxiliary input data.  Possible values are\n\"Nominal\" and \"Degraded\".\n",
+                        "name": "PROCESSING_STATUS",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "The version of the software used for L2 processing, as a string of\nthe form \"major.minor.patch\".",
+                        "name": "PROCESSOR_VERSION",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "Id of the L2 product used to generate this asset.",
+                        "name": "PRODUCT_ID",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "Indicator that specifies whether the product quality is degraded or\nnot.  Allowed values are \"Degraded\" and \"Nominal\".\n",
+                        "name": "PRODUCT_QUALITY",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "Name of the sensor which acquired the data.",
+                        "name": "SENSOR",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "Spatial resolution at nadir. For most products this is `3.5x7km2`,\nexcept for `L2__O3__PR`, which uses `28x21km2`, and\n`L2__CO____` and `L2__CH4___`, which both use `7x7km2`.\nThis attribute originates from the CCI standard.\n",
+                        "name": "SPATIAL_RESOLUTION",
+                        "type": "STRING"
+                    },
+                    {
+                        "description": "Days from 1 Jan 1950 to when the data was acquired.",
+                        "name": "TIME_REFERENCE_DAYS_SINCE_1950",
+                        "type": "INT"
+                    },
+                    {
+                        "description": "The Julian day number when the data was acquired.",
+                        "name": "TIME_REFERENCE_JULIAN_DAY",
+                        "type": "DOUBLE"
+                    },
+                    {
+                        "description": "UUID for the L2 product file.",
+                        "name": "TRACKING_ID",
+                        "type": "STRING"
+                    }
+                ],
+                "instruments": [
+                    "TROPOMI"
+                ],
+                "platform": [
+                    "Sentinel-5P"
+                ],
+                "sensor_altitude": {
+                    "gee:estimated_range": true,
+                    "maximum": 856078,
+                    "minimum": 828543
+                },
+                "sensor_azimuth_angle": {
+                    "gee:estimated_range": true,
+                    "maximum": 180,
+                    "minimum": -180
+                },
+                "sensor_zenith_angle": {
+                    "gee:estimated_range": true,
+                    "maximum": 67,
+                    "minimum": 0.09
+                },
+                "solar_azimuth_angle": {
+                    "gee:estimated_range": true,
+                    "maximum": 180,
+                    "minimum": -180
+                },
+                "solar_zenith_angle": {
+                    "gee:estimated_range": true,
+                    "maximum": 88,
+                    "minimum": 8
+                }
+            },
+            "title": "Sentinel-5P NRTI AER AI: Near Real-Time UV Aerosol Index",
+            "type": "Collection",
+            "cube:dimensions": {
+                "x": {
+                    "type": "spatial",
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ]
+                },
+                "y": {
+                    "type": "spatial",
+                    "axis": "y",
+                    "extent": [
+                        -90,
+                        90
+                    ]
+                },
+                "t": {
+                    "type": "temporal",
+                    "extent": [
+                        "2018-07-10T11:17:44Z",
+                        "2023-01-29T02:38:00"
+                    ]
+                },
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "absorbing_aerosol_index",
+                        "sensor_altitude",
+                        "sensor_azimuth_angle",
+                        "sensor_zenith_angle",
+                        "solar_azimuth_angle",
+                        "solar_zenith_angle"
+                    ]
+                }
+            },
+            "assets": {
+                "preview_4": {
+                    "href": "https://developers.google.com/earth-engine/datasets/images/COPERNICUS/COPERNICUS_S5P_NRTI_L3_AER_AI_sample.png",
+                    "type": "image/png",
+                    "roles": [
+                        "thumbnail"
+                    ]
+                }
+            }
         },
         {
-            "id": "SENTINEL1_OCN",
-            "title": "Sentinel-1 OCN",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL1_L0",
-            "title": "Sentinel-1 L0",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_OLCI_L1_NTC",
-            "title": "Sentinel-3 OLCI Level-1 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "Sentinel-3",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_OLCI_L1_NRT",
-            "title": "Sentinel-3 OLCI Level-1 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_OLCI_L2_NTC",
-            "title": "Sentinel-3 OLCI Level-2 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "Sentinel-3",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_OLCI_L2_NRT",
-            "title": "Sentinel-3 OLCI Level-2 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_OLCI_L0",
-            "title": "Sentinel-3 OLCI Level-0",
-            "description": "",
-            "mission": "Sentinel-3",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L1_NTC",
-            "title": "Sentinel-3 SLSTR Level-1 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L1_NRT",
-            "title": "Sentinel-3 SLSTR Level-1 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L2_NTC",
-            "title": "Sentinel-3 SLSTR Level-2 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L2_NRT",
-            "title": "Sentinel-3 SLSTR Level-2 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L0",
-            "title": "Sentinel-3 SLSTR Level-0",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L1_NTC",
-            "title": "Sentinel-3 SLSTR Level-1 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L1_NRT",
-            "title": "Sentinel-3 SLSTR Level-1 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L2_NTC",
-            "title": "Sentinel-3 SLSTR Level-2 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L2_NRT",
-            "title": "Sentinel-3 SLSTR Level-2 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SLSTR_L0",
-            "title": "Sentinel-3 SLSTR Level-0",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SRAL_L1_NTC",
-            "title": "Sentinel-3 SRAL Level-1 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SRAL_L1_NRT",
-            "title": "Sentinel-3 SRAL Level-1 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },        
-        {
-            "id": "SENTINEL3_SRAL_L1_STC",
-            "title": "Sentinel-3 SRAL Level-1 STC (Short Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SRAL_L2_NTC",
-            "title": "Sentinel-3 SRAL Level-2 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SRAL_L2_NRT",
-            "title": "Sentinel-3 SRAL Level-2 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SRAL_L2_STC",
-            "title": "Sentinel-3 SRAL Level-2 STC (Short Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SRAL_L0",
-            "title": "Sentinel-3 SRAL Level-0",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SYN_L2_NTC",
-            "title": "Sentinel-3 SYN Level-2 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL3_SYN_L2_STC",
-            "title": "Sentinel-3 SYN Level-2 STC (Short Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL5P_L1B_NTC",
-            "title": "Sentinel-5P Level-1B NTC (Non Time Critical)",
-            "description": "",
+            "id": "SENTINEL5P_CH4",
+            "title": "Sentinel-5P CH4",
+            "description": "The data comes from the Copernicus Sentinel-5P satellite and uses data from the Copernicus Sentinel-5P satellite and shows the averaged methane concentrations across the globe \u2014 using weekly averaged maps. The methane map shown here is measured by the Tropomi instrument on the Sentinel 5 Precursor satellite.\nThe Copernicus Sentinel-5P CH4 measurements were first filtered according to the recommendation in the Product Readme file (only data with a qa_value > 0.50 was used). Then the measurements are mapped on a fixed latitude-longitude grid of 4096 x 8192 pixels. The grid is turned into an EPSG:4326 geotiff file using the appropriate color scale, which is again turned into an EPSG:3857 tile map.\nData gaps are visible based on the product quality filtering and the fact that over the sea only measurements for sun-glint situations are being provided.\n",
             "mission": "Sentinel-5P",
-            "gsd": 10
+            "gsd": "",
+            "type": "Collection",
+            "assets": {
+                "thumbnail": {
+                    "href": "https://collections.eurodatacube.com/s5p-ch4-weekly/ch4.PNG",
+                    "roles": [
+                        "thumbnail"
+                    ],
+                    "title": "Thumbnail",
+                    "type": "image/png"
+                }
+            },
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -90,
+                            180,
+                            90
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2021-11-15T00:00:00Z",
+                            null
+                        ]
+                    ]
+                }
+            },
+            "cube:dimensions": {
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "ch4"
+                    ]
+                },
+                "t": {
+                    "extent": [
+                        "2021-11-15T00:00:00Z",
+                        null
+                    ],
+                    "step": "P7D",
+                    "type": "temporal"
+                },
+                "x": {
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ],
+                    "type": "spatial"
+                },
+                "y": {
+                    "axis": "y",
+                    "extent": [
+                        -90,
+                        90
+                    ],
+                    "type": "spatial"
+                }
+            },
+            "datasource_type": "byoc-0ecb4a55-5ce2-4525-bdcb-a333d37d46ef",
+            "keywords": [
+                "open data",
+                "sentinel hub",
+                "raster",
+                "race challenges"
+            ],
+            "license": "",
+            "links": [
+                {
+                    "href": "https://sentinelshare.page.link/zRc2",
+                    "title": "CDSE Data-Browser",
+                    "rel": "browser"
+                },
+                {
+                    "href": "https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/tropomi-level-2-methane",
+                    "title": "User guide",
+                    "rel": "about"
+                },
+                {
+                    "href": "https://catalogue.dataspace.copernicus.eu/resto/api/collections/Sentinel5P/search.json",
+                    "rel": "opensearch"
+                },
+                {
+                    "href": "https://collections.eurodatacube.com/stac/s5p-ch4-weekly.json",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://raw.githubusercontent.com/eurodatacube/public-collections/main/collections/s5p-ch4-weekly/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "CH4-weekly",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate ch4 imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "",
+                    "rel": "license",
+                    "title": "License",
+                    "type": "text/html"
+                }
+            ],
+            "stac_extensions": [
+                "https://stac-extensions.github.io/datacube/v1.0.0/schema.json"
+            ],
+            "stac_version": "1.0.0"
         },
         {
-            "id": "SENTINEL5P_L2_NTC",
-            "title": "Sentinel-5P Level-2 NTC (Non Time Critical)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
+            "id": "SENTINEL_5P_CO",
+            "description": "This online platform uses data from the Copernicus Sentinel-5P satellite and shows the averaged carbon monoxide concentrations across the globe \u2014 using a 3-day moving average. Using a 3 day average eliminates most data gaps and improves data quality by reducing random noise. Satellite measurements of concentrations of pollutants like Carbon Monoxide, having a life-time in the atmosphere of about 1 month, can be used to monitor trans-boundary movement of air pollution.\nCarbon monoxide (CO) is a colorless, odorless, and tasteless gas that is toxic to humans as it can disrupt the transport of oxygen by the blood. In the atmosphere, it is spatially variable and has a life-time of about 1 month.\nIt is produced primarily by the incomplete combustion or oxidation of carbonaceous materials or substances used for fuel in transportation by internal combustion motor vehicles, in industrial heating and processing, and in the heating of homes and buildings. Other sources of CO production are open burning and aircraft emission.\nThe Copernicus Sentinel-5P CO measurements were first filtered according to the recommendation in the Product Readme file (only data with a qa_value > 0.50 was used). Then the measurements are mapped on a fixed latitude-longitude grid of 4096 x 8192 pixels. The grid is turned into an EPSG:4326 geotiff file using the appropriate color scale, which is again turned into an EPSG:3857 tile map.\n",
+            "title": "Sentinel 5P Carbon Monoxide(CO)",
+            "type": "Collection",
+            "mission":"Sentinel-5P",
+            "assets": {
+                "thumbnail": {
+                    "href": "https://collections.eurodatacube.com/co_3daily_data/co.png",
+                    "roles": [
+                        "thumbnail"
+                    ],
+                    "title": "Thumbnail",
+                    "type": "image/png"
+                }
+            },
+            "cube:dimensions": {
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "co"
+                    ]
+                },
+                "t": {
+                    "extent": [
+                        "2018-04-30T00:00:00Z",
+                        null
+                    ],
+                    "step": "P1D",
+                    "type": "temporal"
+                },
+                "x": {
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ],
+                    "type": "spatial"
+                },
+                "y": {
+                    "axis": "y",
+                    "extent": [
+                        -90,
+                        90
+                    ],
+                    "type": "spatial"
+                }
+            },
+            "datasource_type": "byoc-57a07405-8ec2-4b9c-a273-23e287c173f8",
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -90,
+                            180,
+                            90
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2018-04-30T00:00:00Z",
+                            null
+                        ]
+                    ]
+                }
+            },
+            "keywords": [
+                "open data",
+                "sentinel hub",
+                "raster",
+                "race challenges"
+            ],
+            "license": "",
+            "links": [
+                {
+                    "href": "https://sentinelshare.page.link/kp7r",
+                    "title": "CDSE Data-Browser",
+                    "rel": "browser"
+                },
+                {
+                    "href": "https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-carbon-monoxide",
+                    "title": "User guide",
+                    "rel": "about"
+                },
+                {
+                    "href": "https://catalogue.dataspace.copernicus.eu/resto/api/collections/Sentinel5P/search.json",
+                    "rel": "opensearch"
+                },
+                {
+                    "href": "https://raw.githubusercontent.com/eurodatacube/public-collections/main/collections/co_3daily_data/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "co-3daily",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate co imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "",
+                    "rel": "license",
+                    "title": "License",
+                    "type": "text/html"
+                }
+            ],
+            "stac_extensions": [
+                "https://stac-extensions.github.io/datacube/v1.0.0/schema.json"
+            ],
+            "stac_version": "1.0.0"
         },
         {
-            "id": "SENTINEL5P_L2_NRT",
-            "title": "Sentinel-5P Level-2 NRT (Near Real Time)",
-            "description": "",
-            "mission": "",
-            "gsd": 10
-        },
-        {
-            "id": "SENTINEL5P_L0",
-            "title": "Sentinel-5P Level-0",
-            "description": "",
-            "mission": "",
-            "gsd": 10
+            "id": "SENTINEL_5P_NO2",
+            "title": "S5P-NO2-tropno-daily-check",
+            "type": "Collection",
+            "mission":"Sentinel-5P",
+            "assets": {
+                "thumbnail": {
+                    "href": "https://collections.eurodatacube.com/s5p-no2-tropno-daily-check/s5p-no2-tropno-daily-check.png",
+                    "roles": [
+                        "thumbnail"
+                    ],
+                    "title": "Thumbnail",
+                    "type": "image/png"
+                }
+            },
+            "cube:dimensions": {
+                "bands": {
+                    "type": "bands",
+                    "values": [
+                        "tropno2"
+                    ]
+                },
+                "t": {
+                    "extent": [
+                        "2018-04-30T00:00:00Z",
+                        null
+                    ],
+                    "step": "P7D",
+                    "type": "temporal"
+                },
+                "x": {
+                    "axis": "x",
+                    "extent": [
+                        -180,
+                        180
+                    ],
+                    "type": "spatial"
+                },
+                "y": {
+                    "axis": "y",
+                    "extent": [
+                        -90,
+                        90
+                    ],
+                    "type": "spatial"
+                }
+            },
+            "description": "The data comes from the Copernicus Sentinel-5P satellite and shows the averaged nitrogen dioxide concentrations across the globe \u2013 using a 14-day moving average. Concentrations of short-lived pollutants, such as nitrogen dioxide, are indicators of changes in economic slowdowns and are comparable to changes in emissions. Using a 14 day average eliminates some effects which are caused by short term weather changes and cloud cover. The average gives an overview over the whole time period and therefore reflects trends better than shorter time periods.",
+            "extent": {
+                "spatial": {
+                    "bbox": [
+                        [
+                            -180,
+                            -90,
+                            180,
+                            90
+                        ]
+                    ]
+                },
+                "temporal": {
+                    "interval": [
+                        [
+                            "2018-04-30T00:00:00Z",
+                            null
+                        ]
+                    ]
+                }
+            },
+            "keywords": [
+                "open data",
+                "sentinel hub",
+                "raster",
+                "race challenges"
+            ],
+            "license": "",
+            "links": [
+                {
+                    "href": "https://sentinelshare.page.link/ZYjb",
+                    "title": "CDSE Data-Browser",
+                    "rel": "browser"
+                },
+                {
+                    "href": "https://sentinel.esa.int/web/sentinel/data-products/-/asset_publisher/fp37fc19FN8F/content/sentinel-5-precursor-level-2-nitrogen-dioxide",
+                    "title": "User guide",
+                    "rel": "about"
+                },
+                {
+                    "href": "https://catalogue.dataspace.copernicus.eu/resto/api/collections/Sentinel5P/search.json",
+                    "rel": "opensearch"
+                },
+                {
+                    "href": "https://raw.githubusercontent.com/eurodatacube/public-collections/main/collections/s5p-no2-tropno-daily-check/script.js",
+                    "rel": "processing-expression",
+                    "sentinelhub:layer_name": "NO2",
+                    "sentinelhub:mosaicking_order": "mostRecent",
+                    "sentinelhub:upsampling": "BICUBIC",
+                    "title": "Evalscript to generate NO2 imagery",
+                    "type": "application/javascript"
+                },
+                {
+                    "href": "",
+                    "rel": "license",
+                    "title": "License",
+                    "type": "text/html"
+                }
+            ],
+            "stac_extensions": [
+                "https://stac-extensions.github.io/datacube/v1.0.0/schema.json"
+            ],
+            "stac_version": "1.0.0"
         }
     ]
 }
