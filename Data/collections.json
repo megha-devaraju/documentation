@@ -1125,6 +1125,20 @@
             }
         },
         {
+            "id": "SENTINEL2__L0",
+            "title": "Sentinel-2 Level0",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL2__L1B",
+            "title": "Sentinel-2 Level1B",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
             "id": "SENTINEL1_GRD_IW",
             "title": "Sentinel-1 ground range detected IW",
             "description": "",
@@ -1135,14 +1149,224 @@
             "id": "SENTINEL1_GRD_EW",
             "title": "Sentinel-1 ground range detected EW",
             "description": "",
-            "mission": "Sentinel-1",
+            "mission": "",
             "gsd": 10
         },
         {
             "id": "SENTINEL1_SLC",
             "title": "Sentinel-1 single look complex",
             "description": "Full archive of Sentinel-1 Single Look Complex (SLC) products.",
-            "mission": "Sentinel-1",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL1_OCN",
+            "title": "Sentinel-1 OCN",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL1_L0",
+            "title": "Sentinel-1 L0",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_OLCI_L1_NTC",
+            "title": "Sentinel-3 OLCI Level-1 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "Sentinel-3",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_OLCI_L1_NRT",
+            "title": "Sentinel-3 OLCI Level-1 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_OLCI_L2_NTC",
+            "title": "Sentinel-3 OLCI Level-2 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "Sentinel-3",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_OLCI_L2_NRT",
+            "title": "Sentinel-3 OLCI Level-2 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_OLCI_L0",
+            "title": "Sentinel-3 OLCI Level-0",
+            "description": "",
+            "mission": "Sentinel-3",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L1_NTC",
+            "title": "Sentinel-3 SLSTR Level-1 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L1_NRT",
+            "title": "Sentinel-3 SLSTR Level-1 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L2_NTC",
+            "title": "Sentinel-3 SLSTR Level-2 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L2_NRT",
+            "title": "Sentinel-3 SLSTR Level-2 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L0",
+            "title": "Sentinel-3 SLSTR Level-0",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L1_NTC",
+            "title": "Sentinel-3 SLSTR Level-1 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L1_NRT",
+            "title": "Sentinel-3 SLSTR Level-1 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L2_NTC",
+            "title": "Sentinel-3 SLSTR Level-2 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L2_NRT",
+            "title": "Sentinel-3 SLSTR Level-2 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SLSTR_L0",
+            "title": "Sentinel-3 SLSTR Level-0",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SRAL_L1_NTC",
+            "title": "Sentinel-3 SRAL Level-1 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SRAL_L1_NRT",
+            "title": "Sentinel-3 SRAL Level-1 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },        
+        {
+            "id": "SENTINEL3_SRAL_L1_STC",
+            "title": "Sentinel-3 SRAL Level-1 STC (Short Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SRAL_L2_NTC",
+            "title": "Sentinel-3 SRAL Level-2 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SRAL_L2_NRT",
+            "title": "Sentinel-3 SRAL Level-2 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SRAL_L2_STC",
+            "title": "Sentinel-3 SRAL Level-2 STC (Short Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SRAL_L0",
+            "title": "Sentinel-3 SRAL Level-0",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SYN_L2_NTC",
+            "title": "Sentinel-3 SYN Level-2 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL3_SYN_L2_STC",
+            "title": "Sentinel-3 SYN Level-2 STC (Short Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL5P_L1B_NTC",
+            "title": "Sentinel-5P Level-1B NTC (Non Time Critical)",
+            "description": "",
+            "mission": "Sentinel-5P",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL5P_L2_NTC",
+            "title": "Sentinel-5P Level-2 NTC (Non Time Critical)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL5P_L2_NRT",
+            "title": "Sentinel-5P Level-2 NRT (Near Real Time)",
+            "description": "",
+            "mission": "",
+            "gsd": 10
+        },
+        {
+            "id": "SENTINEL5P_L0",
+            "title": "Sentinel-5P Level-0",
+            "description": "",
+            "mission": "",
             "gsd": 10
         }
     ]
