@@ -1139,10 +1139,17 @@
             "gsd": 10
         },
         {
+            "id": "SENTINEL1_GRD",
+            "title": "Sentinel-1 Ground Range Detected",
+            "description": "",
+            "mission": "Sentinel-1",
+            "gsd": 10
+        },
+        {
             "id": "SENTINEL1_GRD_IW",
             "title": "Sentinel-1 ground range detected IW",
             "description": "",
-            "mission": "Sentinel-1",
+            "mission": "",
             "gsd": 10
         },
         {
