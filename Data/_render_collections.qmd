@@ -1,6 +1,13 @@
 
 ```{python}
+# import necessary packages
 import json
+from IPython.display import display, Markdown, Latex,HTML
+from tabulate import tabulate
+```
+
+```{python}
+#load the collection
 
 meta = None
 with open("./collections.json") as f:
@@ -8,55 +15,32 @@ with open("./collections.json") as f:
 
 meta = [ c for c in meta if mission in c["id"] ]
 
-from IPython.display import display, Markdown, Latex,HTML
-from tabulate import tabulate
+```
 
-text = ''
-
-
+```{python}
+# fetch thumbnail 
 dummy_thumb = "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2015/06/northwest_italy_and_southern_france/15492215-1-eng-GB/Northwest_Italy_and_southern_France_pillars.jpg"
 
-def togglescript():
-    script = f"""<script>function toggleContent(id){{var x = document.getElementById(id);if (x.style.display === "none"){{x.style.display = "block";}} else {{x.style.display = "none";}}}}</script>"""
-    return script
+def get_thumbnail(c):
+    try:
+        thumb_url = c["assets"]["thumbnail"]["href"]
+    except:
+        thumb_url = dummy_thumb
+    return thumb_url
+
+```
+
+```{python}
+# thumbnail block 
 
 def thumbblock(src,userguide, opensearch, gsd, datatype):
     thumb =  f"""<div class="row" style="display: flex; justify-content: space-around"><div class="column"><div class="badge-row">{userguide} {opensearch}</div><div class="badge-row gutter">{gsd}</div><div class="badge-row">{datatype}</div></div><div class="column" style="margin-right:10%; margin-left:auto; text-align: right;"><figure><img width="150" height="150" src={src}><figcaption align="center">{databrowser}</figcaption></figure></div></div>"""
     return thumb
 
+```
 
-def detailblock(ID,xy,time,stacurl,src):
-    bandinfo = f"""<button onclick="toggleContent('{ID}')" class="expand-collapse">Further details about the data collection</button><div class="expand-content" id="{ID}" style="display:none;"><div>{xy}</div><div>{time}</div><div>{stacurl}</div><div>{src}</div></div>"""
-    return bandinfo
-
-
-for c in meta:
-
-    title = c["title"]
-    gsd = c["gsd"]
-    datatype = c["type"]
-    tabletitle = "Spectral Bands"
-
-    
-    def find_link(rel=None,href_contains=None, title_contains=None):
-        results = [ l["href"] for l in c.get("links",[]) if (rel is None or l["rel"]==rel) and (href_contains==None or href_contains in l["href"]) and (title_contains==None or title_contains in l["title"]) ]
-        if len(results) == 0:
-            return None
-        else:
-            return results[0]
-
-    # insert thumbnail
-    try:
-        thumb_url = c["assets"]["thumbnail"]["href"]
-    except:
-        thumb_url = dummy_thumb
-
-    try:
-        collectionID = c["id"]
-    except:
-        collectionID = ""
-
-    # search stac extention
+```{python}
+def get_stac(c):
     try:
         stac_extension = c["stac_extensions"]
         link = None  # initialize link variable to None
@@ -67,8 +51,42 @@ for c in meta:
                 break  # exit the loop once you've found the link        
     except:
         stac_url = ""
+    return stac_url
+```
 
-    # get extents
+```{python}
+# function to toggle detail block
+
+def togglescript():
+    script = f"""<script>function toggleContent(id){{var x = document.getElementById(id);if (x.style.display === "none"){{x.style.display = "block";}} else {{x.style.display = "none";}}}}</script>"""
+    return script
+
+```
+
+```{python}
+# include detail block
+
+def detailblock(ID,xy,time,stacurl,src):
+    bandinfo = f"""<button onclick="toggleContent('{ID}')" class="expand-collapse">Further details about the data collection</button><div class="expand-content" id="{ID}" style="display:none;"><div>{xy}</div><div>{time}</div><div>{stacurl}</div><div>{src}</div></div>"""
+    return bandinfo
+
+```
+
+```{python}
+# function to search for links
+
+def find_link(rel=None,href_contains=None, title_contains=None):
+    results = [ l["href"] for l in c.get("links",[]) if (rel is None or l["rel"]==rel) and (href_contains==None or href_contains in l["href"]) and (title_contains==None or title_contains in l["title"]) ]
+    if len(results) == 0:
+        return None
+    else:
+        return results[0]
+
+```
+
+```{python}
+# get extension detail
+def get_extent(c):
     try:
         extent = c["extent"]
         spatial = extent['spatial']['bbox'][0]
@@ -78,10 +96,12 @@ for c in meta:
     except:
         spatial = ""
         temporal = ""
+    return spatial,temporal
+```
 
-
-
-    # include band details
+```{python}
+def get_bandtable(c):
+    tabletitle = "Spectral Bands"
     try: 
         band_num = len(c['summaries']['eo:bands'])
         t = []
@@ -99,17 +119,53 @@ for c in meta:
             except:
                 b_gsd = ''
             try:
-                b_wavelength = c['summaries']['eo:bands'][i]['wavelength_nm']
+                b_wavelength = c['summaries']['eo:bands'][i]['center_wavelength']
             except:
                 b_wavelength = ''
             t.append([band,c_name,b_gsd,b_wavelength])
-        table = tabulate(t,headers=["Band Name", "Common Name", "GSD", "Wavelength"], tablefmt='html', floatfmt=".20f")
+        table = tabulate(t,headers=["Band Name", "Common Name", "GSD", "Center Wavelength"], tablefmt='html', floatfmt=".20f")
         # Set the minimum width of each column to 100 pixels
         table = table.replace("<table>", '<table class="table">')
         table = f"""<h5>{tabletitle}</h5>{table}"""
     except:
         table = " "
+    return table
+```
 
+```{python}
+# for loop to display the content
+
+text = ''
+
+for c in meta:
+
+    title = c["title"]
+    try:
+        gsd = c["gsd"] 
+    except:
+        gsd = ""
+    try:
+        datatype = c["type"] 
+    except:
+        datatype = ""
+        
+    try:
+        collectionID = c["id"]
+    except:
+        collectionID = ""
+
+    # insert thumbnail
+    thumb_url = get_thumbnail(c)
+
+    # search stac extention
+    stac_url = get_stac(c)
+
+    # get extents
+    spatial , temporal = get_extent(c)
+
+    # include spectral band table
+    table = get_bandtable(c)
+    
     links = { l["rel"] + l.get("title",""):l["href"] for l in c.get("links",[])}
     userguide = find_link(rel="about",title_contains="User")
     opensearch = find_link(rel="opensearch")
@@ -150,12 +206,12 @@ for c in meta:
 ]({opensearch})"""
     else:
         opensearch = ""
+
     text = text + f"""
 
-## {title} 
+## {title}
 
 {thumbblock(thumb_url,userguide,opensearch,gsd,datatype)}
-
 
 <h4>Overview</h4>
 
@@ -166,8 +222,11 @@ for c in meta:
 
 {detailblock(collectionID,spatial,temporal,stac_url,table)}
 
-
 """
+
+```
+
+```{python}
 text = text + togglescript()
 
 display(Markdown(text))
