@@ -13,7 +13,7 @@ meta = None
 with open("./collections.json") as f:
     meta = json.load(f)["collections"]
 
-meta = [ c for c in meta if mission in c["id"] ]
+meta = [ c for c in meta if mission in c["mission"] ]
 
 ```
 
@@ -133,10 +133,20 @@ def get_bandtable(c):
 ```
 
 ```{python}
+# product details 
+
+def product_detailblock(ID,about,logo1,logo2,NR_spa,NT_spa):
+    product_info = f"""<button onclick="toggleContent('{ID}')" class="expand-collapse">{ID}</button><div class="expand-content" id="{ID}" style="display:none;"><div>{logo1}{NR_spa}<br>{logo2}{NT_spa}</div><div>{about}</div></div><br>"""
+    return product_info
+
+```
+
+
+```{python}
 # for loop to display the content
-
+newline="\n"
 text = ''
-
+levelids=[]
 for c in meta:
 
     title = c["title"]
@@ -153,6 +163,33 @@ for c in meta:
         collectionID = c["id"]
     except:
         collectionID = ""
+
+    try:
+        for i in c["data_product"]:
+            LevelID = c["data_product"][i]["Level_ID"]
+            About = c["data_product"][i]["description"]
+            levelids.append((LevelID,About))
+    except:
+        LevelID = ""
+        About = ""
+
+    # try:
+    #     if "NRT" in product_type:
+    #         type_logo = f"""![](https://img.shields.io/badge/{product_type}-77cc09) """
+    #     elif "NTC" in datatype:
+    #         type_logo = f"""![](https://img.shields.io/badge/{product_type}-important) """
+    #     elif "STC" in datatype:
+    #         type_logo = f"""![](https://img.shields.io/badge/{product_type}-important) """
+    #     else:
+    #         type_logo = ""
+    # except:
+    #     type_logo = ""
+
+    NRT_logo = f"""![](https://img.shields.io/badge/NRT-informational)"""
+    NR_spa = f"""![](https://img.shields.io/badge/Gloabl-Past%201Year-informational)"""
+    NTC_logo = f"""![](https://img.shields.io/badge/NTC-green) """
+    NT_spa = f"""![](https://img.shields.io/badge/Gloabl-March%202016--Present-green)"""
+
 
     # insert thumbnail
     thumb_url = get_thumbnail(c)
@@ -213,12 +250,16 @@ for c in meta:
 
 {thumbblock(thumb_url,userguide,opensearch,gsd,datatype)}
 
-<h4>Overview</h4>
+#### Overview
 
 {c["description"]}
 
 {datacollection}
 
+
+#### Data Products
+
+{newline.join(product_detailblock(levels[0], levels[1], NRT_logo,NTC_logo,NR_spa,NT_spa) for levels in levelids)}
 
 {detailblock(collectionID,spatial,temporal,stac_url,table)}
 

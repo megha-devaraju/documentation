@@ -10,7 +10,7 @@ jupyter: python3
 ```{python}
 #| tags: [parameters]
 
-mission = "SENTINEL3"
+mission = "Sentinel-3"
 
 ```
 
