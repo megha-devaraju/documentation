@@ -6,7 +6,8 @@ The Browser is a web browser application that allows you to easily search, visua
 
 Currently you need a free account to use the Browser. To register for a free account, click [here](https://identity.cloudferro.com/auth/realms/CDSE/protocol/openid-connect/auth?client_id=sh-5f8b630b-b083-49ed-b340-b8f01ecb81c4&redirect_uri=https%3A%2F%2Fdataspace.copernicus.eu%2Fbrowser%2FoauthCallback.html&response_type=token&state=) to the browser. A new window will open where you can click on **New user? Click [here](https://identity.cloudferro.com/auth/realms/CDSE/login-actions/registration?client_id=sh-5f8b630b-b083-49ed-b340-b8f01ecb81c4&tab_id=kuySlol9oac){target="_blank"} to create an account and access the data**. Once you have created the account, you will automatically be logged in to the Browser. Remember to save your login credentials for the next time you want to log in to the Browser.
 
-![Browser start screen](../_images/StartScreen.png){#fig-startscreen}
+![Browser start screen](../_images/StartScreen.png)
+Fig 1: Browser start screen
 
 
 The Browser window is divided into three parts:
@@ -16,7 +17,7 @@ The Browser window is divided into three parts:
  3. The toolbar on the right side of the screen. Here you find various tools (e.g., for measuring or downloading images) with which you can work with the data displayed on the map.
    
 
-## Visualizing data
+## Visualization
 
 You can find the *VISUALIZE* tab in the upper left corner of the sidebar (selected by default). The *VISUALIZE* tab will allow you to easily visualize satellite imagery on the map. Change or modify your visualization with just a few clicks.
 
@@ -27,13 +28,11 @@ Let's try to visualize the latest Sentinel-2 L2A imagery over Italy.
 
 1. Either zoom to Italy with the mouse wheel or type *Italy* in the search box in the upper right corner.
 2. In the sidebar, a maximum cloud coverage of 30% and the product type Sentinel-2 L2A are already preselected. To visualize the latest available data with cloud coverage below 30% click on the *Show latest date* button.
-<!-- ![Visualize](../_images/VisualizeLatestInfo.png) -->
-
-    ![VISUALIZE tab with *show latest date button* and *Sentinel-2 L2A* collection highlighted](../_images/VisualizeLatestInfo.png){#fig-2 width=350}
 
 
+<img src="../_images/VisualizeLatestInfo.png" width="350">
 
-    Fig 2: VISUALIZE tab with *show latest date button* and *Sentinel-2 L2A* collection highlighted
+Fig 2: VISUALIZE tab with *show latest date button* and *Sentinel-2 L2A* collection highlighted
 
 You can now see the latest data over Italy on the map. Depending on the latest data available you will see data from one or more orbits (stripes of images on the map).
 
@@ -51,7 +50,7 @@ Here you can create a custom *R/G/B* composite or _Index_ (band ratio, normalize
 
 #### Changing the Data Collection
 
-You can switch visualizing between different data collections by clicking on the arrow next to the Data Collections section in the Visualization tab. Once you click on the arrow as seen in Fig. 4, you will be able to see a drop-down menu with a list of the satellite data that is available. Let us try to visualize Sentinel-3 data of the same location and date as that of the Sentinel-2 data in section 2.1.  
+You can switch visualizing between different data collections by clicking on the arrow next to the Data Collections section in the Visualization tab. Once you click on the arrow as seen in Fig. 4, you will be able to see a drop-down menu with a list of the satellite data that is available. Let us try to visualize Sentinel-3 data of the same location and date as that of the Sentinel-2 data in Visualizing data section.  
 1.	Click on the drop-down arrow on the right next to Pins icon. 
 2.	Click on the drop-down arrow next to Sentinel-2 and select Sentinel-3.
 3.	You can select the product you want to visualize. To visualize the Brightness temperature, select Sentinel-3 SLSTR L1B. You can see the predefined layers that can be visualized and click on the green button to Show latest date.
@@ -72,7 +71,7 @@ Fig 5: *Add to compare* and compare icon
 
 #### Saving Pins
 
-To save a visualization for future viewing, you can save it as a pin by clicking on ( ![addto](../_images/icons/AddTo.png)) next to the Layer name and clicking on *Add to Pins*. You can find the saved pins by clicking on the ( ![pin](../_images/icons/PinIcon.png)) icon. If you wish to compare saved pins, you can add them to the compare panel as explained in section 2.1.2. If you have multiple pins saved and want to compare them altogether, you can directly go to the compare panel and add all the pins to compare by clicking on ( ![addallpins](../_images/icons/AddAllPins.png)). Another feature of the Browser is that you can export pins as a JSON file and import previously exported pins as well.
+To save a visualization for future viewing, you can save it as a pin by clicking on ( ![addto](../_images/icons/AddTo.png)) next to the Layer name and clicking on *Add to Pins*. You can find the saved pins by clicking on the ( ![pin](../_images/icons/PinIcon.png)) icon. If you wish to compare saved pins, you can add them to the compare panel as explained in the previous section. If you have multiple pins saved and want to compare them altogether, you can directly go to the compare panel and add all the pins to compare by clicking on ( ![addallpins](../_images/icons/AddAllPins.png)). Another feature of the Browser is that you can export pins as a JSON file and import previously exported pins as well.
 
 <img src="../_images/AddPins.png" width="350">
 
@@ -91,7 +90,7 @@ Fig 7: *Find products for current view* button position in the sidebar.
 
 With the 3D visualization tool, users can also visualize the terrain. To obtain a 3D visualization, you need to first select a layer to view and then click on the ![3d](../_images/icons/3D.png) icon. You can move forward, backward, left, or right by right clicking on the pan console (labelled 1 in the red box in Fig. 8) and rotate around a point by right clicking on the camera console (labelled 2 in the red box in Fig. 8). The viewing angle can be adjusted by scaling vertically and panning in all directions. You can further explore the area by adjusting the sun projected shadows and the shading parameters of the scene in the settings (labelled as box 3 and 4 respectively in Fig. 8). This 3D view can also be downloaded as a PNG or JPEG file.
 Let us try visualizing Mont Blanc, the highest peak in the Alps.
-1.	Follow the steps mentioned in section 2.1 to visualize Mont Blanc and select the “True Color” visualization.
+1.	Follow the steps mentioned in Visualizing data chapter to visualize Mont Blanc and select the “True Color” visualization.
 2.	Click on the ![3d](../_images/icons/3D.png) icon placed at the right of the screen.
 3.	You can navigate around the visualization either with your mouse, keyboard or directly on the map by following the instructions mentioned in the “Help” section (click on the ( ![info3d](../_images/icons/Info3D.png)) icon).
 4.  Click on the Settings icon ( ![settings](../_images/icons/Settings.png)). Set the Vertical terrain scaling to 150% by moving the slider. 
@@ -211,13 +210,13 @@ Alternatively, you can select only certain months in a year using the filter by 
 
 <img src="../_images/Timelapse.png" width="1024">
 
-Fig 10: Browser timelapse tool with settings highlighted
+Fig 14: Browser timelapse tool with settings highlighted
 
 
 #### Histogram
 
 With the **Histogram** tool you can display statistical data (the distribution of values) for specific layers by clicking on the ![histogram](../_images/icons/HistIcon.png) icon. The histogram is calculated for the data within your AOI, if defined or otherwise for the whole screen. This tool currently only works for index layers (e.g., the NDVI).
 
-<img src="../_images/Timelapse.png" width="450">
+<img src="../_images/Hist.png" width="550">
 
-Fig. 10: Example of a distribution plot of NDVI values
+Fig. 15: Example of a distribution plot of NDVI values
